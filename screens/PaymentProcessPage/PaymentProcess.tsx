@@ -29,21 +29,21 @@ export const PaymentProcess = () => {
 
   const socket = new WebSocket(`${apiUrl + currencyState.identifier}`);
 
-  // useEffect(() => {
-  //   socket.onopen = () => {
-  //     console.log("Connection stablished");
-  //   };
+  useEffect(() => {
+    socket.onopen = () => {
+      console.log("Connection stablished");
+    };
 
-  //   socket.onmessage = (event) => {
-  //     const data = JSON.parse(event.data);
-  //     handleSocketMessage(data?.status, setHandleModal, dispatch, showModal);
-  //   };
-  //   return () => {
-  //     socket.onclose = (event) => {
-  //       console.log("WebSocket closed:", event.reason);
-  //     };
-  //   };
-  // }, [socket]);
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      handleSocketMessage(data?.status, setHandleModal, dispatch, showModal);
+    };
+    return () => {
+      socket.onclose = (event) => {
+        console.log("WebSocket closed:", event.reason);
+      };
+    };
+  }, [socket]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
