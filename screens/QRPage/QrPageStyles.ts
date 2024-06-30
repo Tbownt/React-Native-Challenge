@@ -1,0 +1,50 @@
+import { StyleSheet } from "react-native";
+
+export const QrPageStyles = StyleSheet.create({
+  containerPage: {
+    flex: 1,
+    backgroundColor: "#035AC5",
+    alignItems: "center",
+    paddingVertical: 50,
+  },
+  pageContent: {
+    backgroundColor: "#EAF3FF",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    width: "90%",
+    gap: 8,
+    borderRadius: 6,
+    marginBottom: 30,
+  },
+  qrBackground: {
+    backgroundColor: "#FFFFFF",
+    height: "50%",
+    width: "80%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 6,
+    marginTop: 30,
+  },
+  totalAmount: {
+    fontFamily: "Mulish",
+    lineHeight: 40.56,
+    textAlign: "center",
+    color: "#FFFFFF",
+    fontSize: 26,
+    fontWeight: "700",
+    marginTop: 50,
+  },
+  refreshAdvice: {
+    fontFamily: "Mulish",
+    fontWeight: "400",
+    lineHeight: 24,
+    textAlign: "center",
+    color: "#FFFFFF",
+    fontSize: 14,
+    letterSpacing: 1,
+    marginTop: 15,
+  },
+});
