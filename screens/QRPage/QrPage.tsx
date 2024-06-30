@@ -1,4 +1,4 @@
-import { View, Text, Image, ActivityIndicator } from "react-native";
+import { View, Text, Image, ActivityIndicator, Dimensions } from "react-native";
 import Qrcode from "react-native-qrcode-svg";
 import { useFormPayment } from "@/hooks/useFormPayment";
 import { QrPageStyles } from "./QrPageStyles";
@@ -9,6 +9,7 @@ const infoCircle = require("../../assets/images/info-circle.png");
 export const QrPage = () => {
   const { currencyState } = useStateManagment();
   const { checkCurrency } = useFormPayment();
+  const { width } = Dimensions.get("window");
 
   return (
     <View style={QrPageStyles.containerPage}>
@@ -22,7 +23,10 @@ export const QrPage = () => {
         {currencyState.web_url.length < 1 ? (
           <ActivityIndicator size="large" />
         ) : (
-          <Qrcode value={currencyState.web_url} size={280} />
+          <Qrcode
+            value={currencyState.web_url}
+            size={width > 400 ? 340 : 280}
+          />
         )}
       </View>
       <Text style={QrPageStyles.totalAmount}>

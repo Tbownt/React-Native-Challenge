@@ -81,9 +81,7 @@ export const ShareWhatsAppNumber = () => {
           onPressIn={sendMessage}
           disabled={phoneNumber.length > 0 ? false : true}
         >
-          <Text style={{ ...paymentPageStyle.btnSendTitle, fontWeight: 700 }}>
-            Enviar
-          </Text>
+          <Text style={paymentPageStyle.btnSendTitle}>Enviar</Text>
         </Pressable>
       </View>
       <SuccessSentModal

@@ -28,7 +28,6 @@ export const Home = () => {
       <DissmissKeyBoard>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={10}
           style={
             Platform.OS === "android"
               ? homeStyles.homeContainer
@@ -60,56 +59,63 @@ export const Home = () => {
               maxLength={10}
             />
           </View>
-
-          <View style={homeStyles.conceptInputContainer}>
-            <Text style={homeStyles.subjectInput}>Concepto</Text>
-            <TextInput
-              placeholder="Añade descripción del pago"
-              style={
-                isFocused
-                  ? homeStyles.conceptInputFocused
-                  : homeStyles.conceptInput
-              }
-              maxLength={140}
-              numberOfLines={3}
-              multiline
-              value={paymentForm.note}
-              onChangeText={(value) => handleChange("note", value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-            />
-            <Text
-              style={
-                paymentForm.note.length > 0
-                  ? homeStyles.limitCharacters
-                  : homeStyles.nonVisibleCharacters
-              }
-            >
-              {characterCountText}
-            </Text>
-          </View>
-
-          <Pressable
-            style={
-              Number(paymentForm.expected_output_amount) >= 0.1
-                ? homeStyles.submitEnabled
-                : homeStyles.submitDisabled
-            }
-            onPress={() => handleSubmit()}
-            disabled={
-              Number(paymentForm.expected_output_amount) < 0.1 ? true : false
-            }
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              alignItems: "center",
+              marginBottom: 50,
+            }}
           >
-            <Text
+            <View style={homeStyles.conceptInputContainer}>
+              <Text style={homeStyles.subjectInput}>Concepto</Text>
+              <TextInput
+                placeholder="Añade descripción del pago"
+                style={
+                  isFocused
+                    ? homeStyles.conceptInputFocused
+                    : homeStyles.conceptInput
+                }
+                maxLength={140}
+                multiline
+                value={paymentForm.note}
+                onChangeText={(value) => handleChange("note", value)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+              />
+              <Text
+                style={
+                  paymentForm.note.length > 0
+                    ? homeStyles.limitCharacters
+                    : homeStyles.nonVisibleCharacters
+                }
+              >
+                {characterCountText}
+              </Text>
+            </View>
+
+            <Pressable
               style={
-                Number(paymentForm.expected_output_amount)
-                  ? homeStyles.buttonContentEnabled
-                  : homeStyles.buttonContentDisabled
+                Number(paymentForm.expected_output_amount) >= 0.1
+                  ? homeStyles.submitEnabled
+                  : homeStyles.submitDisabled
+              }
+              onPress={() => handleSubmit()}
+              disabled={
+                Number(paymentForm.expected_output_amount) < 0.1 ? true : false
               }
             >
-              Continuar
-            </Text>
-          </Pressable>
+              <Text
+                style={
+                  Number(paymentForm.expected_output_amount)
+                    ? homeStyles.buttonContentEnabled
+                    : homeStyles.buttonContentDisabled
+                }
+              >
+                Continuar
+              </Text>
+            </Pressable>
+          </View>
         </KeyboardAvoidingView>
       </DissmissKeyBoard>
     </SafeAreaView>

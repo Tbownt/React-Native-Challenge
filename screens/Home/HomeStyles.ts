@@ -1,4 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const { height } = Dimensions.get("window");
+const getHeightDimension = () => {
+  if (height < 790) return "20%";
+  else if (height >= 790) return "25%";
+};
 export const homeStyles = StyleSheet.create({
   homeContainer: {
     flexDirection: "column",
@@ -6,7 +12,6 @@ export const homeStyles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#FFFFFF",
     flex: 1,
-    paddingBottom: "10%",
   },
   homeContainerIos: {
     flexDirection: "column",
@@ -61,6 +66,7 @@ export const homeStyles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 70,
     width: "90%",
+    height: getHeightDimension(),
   },
   subjectInput: {
     fontFamily: "Mulish",
@@ -77,7 +83,7 @@ export const homeStyles = StyleSheet.create({
     gap: 8,
     borderWidth: 1,
     borderColor: "#E5E9F2",
-    maxHeight: 90,
+    maxHeight: 110,
     fontSize: 14,
     lineHeight: 20,
     color: "#002859",
@@ -91,7 +97,7 @@ export const homeStyles = StyleSheet.create({
     gap: 8,
     borderWidth: 1,
     borderColor: "#035AC5",
-    maxHeight: 90,
+    maxHeight: 110,
     fontSize: 14,
     lineHeight: 20,
     color: "#002859",
@@ -101,7 +107,6 @@ export const homeStyles = StyleSheet.create({
   limitCharacters: { textAlign: "right", color: "#647184" },
   nonVisibleCharacters: { color: "#FFFFFF" },
   submitDisabled: {
-    // marginTop: 50,
     paddingHorizontal: 24,
     paddingVertical: 18,
     width: "90%",
@@ -110,15 +115,14 @@ export const homeStyles = StyleSheet.create({
     fontWeight: 600,
   },
   submitEnabled: {
-    // marginTop: 50,
     paddingHorizontal: 24,
     paddingVertical: 18,
     width: "90%",
-    flexDirection: "column",
     backgroundColor: "#035AC5",
+    borderRadius: 6,
   },
   buttonContentDisabled: {
-    borderRadius: 15,
+    borderRadius: 6,
     fontFamily: "Mulish",
     textAlign: "center",
     color: "#71B0FD",

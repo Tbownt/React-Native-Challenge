@@ -7,6 +7,10 @@ const getLeftPosition = () => {
     return 290;
   } else if (width <= 393) {
     return 300;
+  } else if (width < 300) {
+    return 250;
+  } else if (width > 450) {
+    return 377;
   } else {
     return 320;
   }
@@ -185,6 +189,7 @@ export const paymentPageStyle = StyleSheet.create({
   btnSendTitle: {
     color: "#FFFFFF",
     fontFamily: "MulishMedium",
+    fontWeight: "700",
   },
   btnChangePhoneNumber: {
     fontFamily: "MulishMedium",

@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.tbownt.bit_novo_challenge"
+      "package": "com.tbownt.bit_novo_challenge",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "bundler": "metro",
