@@ -20,14 +20,7 @@ export const NewPayment = () => {
         onPress={() => newProcess()}
       >
         <Image source={wallet} />
-        <Text
-          style={{
-            ...NewPaymentStyles.btnTitle,
-            fontWeight: 700,
-          }}
-        >
-          Nueva solicitud
-        </Text>
+        <Text style={NewPaymentStyles.btnTitle}>Nueva solicitud</Text>
       </Pressable>
     </View>
   );

@@ -8,8 +8,7 @@ export const NewPaymentStyles = StyleSheet.create({
     borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 5,
-    // paddingBottom: 20,
+    marginBottom: 15,
   },
   btnContainer: { flexDirection: "row-reverse", gap: 10 },
   btnTitle: {
@@ -17,7 +16,7 @@ export const NewPaymentStyles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
     fontSize: 16,
-    lineHeight: 25,
+    lineHeight: 20,
     color: "#035AC5",
   },
 });

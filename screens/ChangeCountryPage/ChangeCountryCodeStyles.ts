@@ -8,6 +8,7 @@ export const ChangeCountryCodeStyle = StyleSheet.create({
   },
   inputWrapper: {
     marginTop: 5,
+    marginBottom: 10,
     borderWidth: 2,
     borderColor: "#E5E9F2",
     borderRadius: 6,
@@ -19,13 +20,12 @@ export const ChangeCountryCodeStyle = StyleSheet.create({
     gap: 5,
   },
   searchBar: {
-    // borderColor: "black",
-    // borderWidth: 2,
     width: "90%",
-    fontWeight: "600",
+    fontWeight: "400",
     fontSize: 14,
     lineHeight: 20,
-    fontFamily: "Mulish",
+    fontFamily: "MulishMedium",
+    color: "#647184",
   },
   inputPlaceholder: {
     fontWeight: "500",

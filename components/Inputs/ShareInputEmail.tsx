@@ -9,36 +9,34 @@ export const ShareInputEmail = () => {
   const { email, setEmail, sendEmail } = useSendEmail();
 
   return (
-    <View style={paymentPageStyle.inputIcon}>
-      <View
+    <View
+      style={
+        isFocused
+          ? paymentPageStyle.inputContentFocused
+          : paymentPageStyle.inputContent
+      }
+    >
+      <Image source={emailIcon} />
+      <TextInput
+        placeholder={"Enviar por correo electrónico"}
+        placeholderTextColor="#002859"
+        style={paymentPageStyle.inputTextStyle}
+        value={email}
+        onChangeText={setEmail}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
+      <Pressable
+        onPress={() => sendEmail()}
         style={
-          isFocused
-            ? paymentPageStyle.inputContentFocused
-            : paymentPageStyle.inputContent
+          email.length > 0
+            ? paymentPageStyle.btnSendEvent
+            : paymentPageStyle.btnSendEventDisabled
         }
+        disabled={email.length > 0 ? false : true}
       >
-        <Image source={emailIcon} style={paymentPageStyle.inputIcon} />
-        <TextInput
-          placeholder={"Enviar por correo electrónico"}
-          placeholderTextColor="#002859"
-          style={paymentPageStyle.inputTextStyle}
-          value={email}
-          onChangeText={setEmail}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
-        <Pressable
-          onPress={() => sendEmail()}
-          style={
-            email.length > 0
-              ? paymentPageStyle.btnSendEvent
-              : paymentPageStyle.btnSendEventDisabled
-          }
-          disabled={email.length > 0 ? false : true}
-        >
-          <Text style={paymentPageStyle.btnSendTitle}>Enviar</Text>
-        </Pressable>
-      </View>
+        <Text style={paymentPageStyle.btnSendTitle}>Enviar</Text>
+      </Pressable>
     </View>
   );
 };

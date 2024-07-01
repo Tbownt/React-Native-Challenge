@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  KeyboardAvoidingView,
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, ScrollView, View, Platform } from "react-native";
 import { CurrencyModal } from "@/components/Modals";
 import { PaymentOverview } from "@/components/PaymentOverView";
 import { ShareInputEmail, ShareWhatsAppNumber } from "@/components/Inputs";
@@ -46,27 +40,26 @@ export const PaymentProcess = () => {
   }, [socket]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      keyboardVerticalOffset={90}
+      behavior={Platform.OS === "android" ? "height" : "padding"}
+    >
       <DissmissKeyBoard>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <KeyboardAvoidingView
-            style={{ flex: 1 }}
-            keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
-          >
-            <View style={paymentPageStyle.containerPage}>
-              <PaymentOverview />
-              <View style={paymentPageStyle.childrenContainer}>
-                <BtnCopyClipboard />
-                <ShareInputEmail />
-                <ShareWhatsAppNumber />
-                <ShareWithOtherApps />
-              </View>
-              <NewPayment />
+        <ScrollView contentContainerStyle={{ flexGrow: 3 }}>
+          <View style={paymentPageStyle.containerPage}>
+            <PaymentOverview />
+            <View style={paymentPageStyle.childrenContainer}>
+              <BtnCopyClipboard />
+              <ShareInputEmail />
+              <ShareWhatsAppNumber />
+              <ShareWithOtherApps />
             </View>
-          </KeyboardAvoidingView>
+            <NewPayment />
+          </View>
         </ScrollView>
       </DissmissKeyBoard>
       <CurrencyModal handleModal={handleModal} />
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };

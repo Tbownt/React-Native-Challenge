@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const CurrencyOptions = ({ searchCurrency }: Props) => {
-  const { dispatch, navigator } = useStateManagment();
+  const { dispatch, navigator, currencyState } = useStateManagment();
 
   const setCurrency = (e: string) => {
     dispatch(currentCurrency(e));
@@ -46,7 +46,11 @@ export const CurrencyOptions = ({ searchCurrency }: Props) => {
             </Text>
           </View>
           <Text style={currencyOptionsStyles.subjectOptions}>
-            <AntDesign name="right" size={18} color="black" />
+            {currencyState.currency === flag.currency ? (
+              <AntDesign name="checkcircle" size={18} color="rgb(91,209,215)" />
+            ) : (
+              <AntDesign name="right" size={18} color="black" />
+            )}
           </Text>
         </TouchableOpacity>
       ))}

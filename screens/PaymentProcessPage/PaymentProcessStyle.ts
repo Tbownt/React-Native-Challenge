@@ -1,20 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
-
-const { width } = Dimensions.get("window");
-
-const getLeftPosition = () => {
-  if (width <= 385) {
-    return 290;
-  } else if (width <= 393) {
-    return 300;
-  } else if (width < 300) {
-    return 250;
-  } else if (width > 450) {
-    return 377;
-  } else {
-    return 320;
-  }
-};
+import { StyleSheet } from "react-native";
 
 export const paymentPageStyle = StyleSheet.create({
   containerPage: {
@@ -29,7 +13,7 @@ export const paymentPageStyle = StyleSheet.create({
     flex: 1,
     width: "100%",
     marginVertical: 16,
-    gap: 25,
+    gap: 15,
   },
   shareQrContainer: {
     flexDirection: "row",
@@ -65,9 +49,7 @@ export const paymentPageStyle = StyleSheet.create({
     height: 61.5,
     width: 61.5,
   },
-  inputIcon: {
-    // height: 65,
-  },
+
   inputContent: {
     flexDirection: "row",
     alignItems: "center",
@@ -156,6 +138,8 @@ export const paymentPageStyle = StyleSheet.create({
   },
 
   btnSendEvent: {
+    position: "absolute",
+    right: 16,
     backgroundColor: "#035AC5",
     borderRadius: 4,
     paddingHorizontal: 8,
@@ -164,7 +148,7 @@ export const paymentPageStyle = StyleSheet.create({
   },
   btnSendEventWhatsApp: {
     position: "absolute",
-    left: getLeftPosition(),
+    right: 16,
     backgroundColor: "#035AC5",
     borderRadius: 4,
     paddingHorizontal: 8,

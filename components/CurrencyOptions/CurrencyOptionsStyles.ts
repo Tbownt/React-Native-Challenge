@@ -12,6 +12,7 @@ export const currencyOptionsStyles = StyleSheet.create({
   },
   imageOptions: {
     marginTop: 5,
+    marginRight: 5,
   },
   wrapperOptions: { flexShrink: 1, flexBasis: "80%", flexGrow: 1 },
   titleOptions: {
@@ -23,9 +24,11 @@ export const currencyOptionsStyles = StyleSheet.create({
     color: "#002859",
   },
   subTitleOptions: {
-    fontFamily: "Mulish",
-    fontWeight: "700",
+    fontFamily: "MulishMedium",
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: "400",
     color: "#647184",
   },
-  subjectOptions: { flexShrink: 1, flexBasis: "5%", flexGrow: 1 },
+  subjectOptions: { flexBasis: "6%", flexGrow: 1 },
 });

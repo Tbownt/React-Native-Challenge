@@ -8,6 +8,7 @@ export const CurrencyPageStyle = StyleSheet.create({
   },
   inputWrapper: {
     marginTop: 5,
+    marginBottom: 15,
     borderWidth: 2,
     borderColor: "#E5E9F2",
     borderRadius: 6,
@@ -19,13 +20,11 @@ export const CurrencyPageStyle = StyleSheet.create({
     gap: 5,
   },
   searchBar: {
-    // borderColor: "black",
-    // borderWidth: 2,
     width: "90%",
-    fontWeight: "600",
+    fontWeight: "400",
     fontSize: 14,
     lineHeight: 20,
-    fontFamily: "Mulish",
+    fontFamily: "MulishMedium",
   },
   inputPlaceholder: {
     fontWeight: "500",

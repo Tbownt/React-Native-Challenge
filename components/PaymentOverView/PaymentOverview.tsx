@@ -12,29 +12,14 @@ export const PaymentOverview = () => {
     <View style={OverviewStyles.ContainerOverview}>
       <View style={OverviewStyles.ContentOverview}>
         <View style={OverviewStyles.PaymentWrapper}>
-          <Text
-            style={{
-              ...OverviewStyles.TitleOverview,
-              fontWeight: 700,
-            }}
-          >
-            Solicitud de pago
-          </Text>
-          <Text
-            style={{
-              ...OverviewStyles.TotalAmount,
-              fontWeight: 700,
-            }}
-          >{`${currencyState.amount} ${checkCurrency()}`}</Text>
+          <Text style={OverviewStyles.TitleOverview}>Solicitud de pago</Text>
+          <Text style={OverviewStyles.TotalAmount}>{`${
+            currencyState.amount
+          } ${checkCurrency()}`}</Text>
         </View>
         <Image source={moneyTimer} style={OverviewStyles.WalletIcon} />
       </View>
-      <Text
-        style={{
-          ...OverviewStyles.SubtitleAmount,
-          fontWeight: 700,
-        }}
-      >
+      <Text style={OverviewStyles.SubtitleAmount}>
         Comparte el enlace de pago con el cliente
       </Text>
     </View>

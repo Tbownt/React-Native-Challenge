@@ -45,6 +45,7 @@ export interface CountryArr {
   id: number;
   name: string;
   dialCode: string;
+  code: string;
 }
 
 declare module "*.png";

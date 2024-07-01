@@ -4,25 +4,27 @@ export const CountriesOptionsStyle = StyleSheet.create({
   containerOptions: {
     flex: 1,
     padding: 20,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     width: "100%",
+    gap: 40,
   },
   btnOptions: {
     flex: 1,
     flexDirection: "row",
-    alignItems: "center",
-    borderRadius: 5,
-    borderColor: "#EFF2F7",
-    borderWidth: 1,
+
     padding: 15,
     marginVertical: 15,
+    gap: 4,
   },
   imageOptions: {
-    marginTop: 5,
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    marginRight: 10,
   },
-  wrapperOptions: { flexGrow: 1 },
+  rounded: {
+    borderRadius: 150,
+  },
+  wrapperOptions: { flexShrink: 1, flexBasis: "80%", flexGrow: 1 },
   titleOptions: {
     fontFamily: "Mulish",
     fontWeight: "700",

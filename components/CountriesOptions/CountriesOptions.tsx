@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   View,
   ActivityIndicator,
+  Image,
+  ImageBackground,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { CountriesOptionsStyle } from "./CountriesOptionsStyle";
@@ -16,7 +18,7 @@ import { CountriesOptionsProps, CountryArr } from "@/types";
 export const CountriesOptions: React.FC<CountriesOptionsProps> = ({
   searchCountry,
 }) => {
-  const { dispatch, navigator } = useStateManagment();
+  const { dispatch, navigator, currencyState } = useStateManagment();
   const [filteredCountries, setFilteredCountries] = useState<CountryArr[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -64,8 +66,15 @@ export const CountriesOptions: React.FC<CountriesOptionsProps> = ({
           <TouchableOpacity
             style={CountriesOptionsStyle.btnOptions}
             onPress={() => setDialCode(item.dialCode)}
-            activeOpacity={0.2}
+            activeOpacity={0.1}
           >
+            <Image
+              source={{
+                uri: `https://flagcdn.com/w80/${item.code.toLowerCase()}.png`,
+              }}
+              style={CountriesOptionsStyle.imageOptions}
+            />
+
             <View style={CountriesOptionsStyle.wrapperOptions}>
               <Text style={CountriesOptionsStyle.titleOptions}>
                 {item.dialCode}
@@ -74,7 +83,21 @@ export const CountriesOptions: React.FC<CountriesOptionsProps> = ({
                 {item.name}
               </Text>
             </View>
-            <AntDesign name="right" size={18} color="black" />
+            {currencyState.wsCode === item.dialCode ? (
+              <AntDesign
+                name="checkcircle"
+                size={18}
+                color="rgb(91,209,215)"
+                style={{ alignSelf: "center" }}
+              />
+            ) : (
+              <AntDesign
+                name="right"
+                size={18}
+                color="black"
+                style={{ alignSelf: "center" }}
+              />
+            )}
           </TouchableOpacity>
         )}
         onEndReached={loadMore}
